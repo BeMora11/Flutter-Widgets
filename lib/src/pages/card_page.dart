@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class CardPage extends StatelessWidget {
@@ -9,29 +11,41 @@ class CardPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Card page'),
       ),
-      body: ListView(
-        padding: EdgeInsets.all(20),
-        children: <Widget>[
-          _cardTipo1(),
-          SizedBox(height: 30.0),
-          _cardTipo2(),
-          SizedBox(height: 30.0),
-          _cardTipo1(),
-          SizedBox(height: 30.0),
-          _cardTipo2(),
-          SizedBox(height: 30.0),
-          _cardTipo1(),
-          SizedBox(height: 30.0),
-          _cardTipo2(),
-          SizedBox(height: 30.0),
-          _cardTipo1(),
-          SizedBox(height: 30.0),
-          _cardTipo2(),
-          SizedBox(height: 30.0),
-          // _cardTipo2(),
-        ],
+      body: RefreshIndicator(
+        onRefresh: _obtenerPagina,
+        child: ListView(
+          padding: EdgeInsets.all(20),
+          children: <Widget>[
+            _cardTipo1(),
+            SizedBox(height: 30.0),
+            _cardTipo2(),
+            SizedBox(height: 30.0),
+            _cardTipo1(),
+            SizedBox(height: 30.0),
+            _cardTipo2(),
+            SizedBox(height: 30.0),
+            _cardTipo1(),
+            SizedBox(height: 30.0),
+            _cardTipo2(),
+            SizedBox(height: 30.0),
+            _cardTipo1(),
+            SizedBox(height: 30.0),
+            _cardTipo2(),
+            SizedBox(height: 30.0),
+            // _cardTipo2(),
+          ],
+        ),
       ),
     );
+  }
+
+  Future<Null> _obtenerPagina() async {
+    final duration = new Duration(seconds: 2);
+    new Timer(duration, () {
+      print('object');
+    });
+
+    return Future.delayed(duration);
   }
 
   Widget _cardTipo1() {
